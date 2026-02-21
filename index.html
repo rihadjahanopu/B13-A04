@@ -49,6 +49,52 @@
 					</p>
 				</div>
 			</div>
+			<div class="mb-4 flex items-center justify-between">
+				<h2 class="text-lg font-semibold text-slate-900">Available Jobs</h2>
+				<span
+					class="text-sm text-slate-500"
+					id="job-count"
+					>8 jobs</span
+				>
+			</div>
+			<div
+				class="bg-white border border-slate-200 rounded-lg p-1 inline-flex mb-6 gap-2">
+				<button
+					onclick="setTab('all')"
+					id="tab-all"
+					class="tab-active px-4 py-1.5 text-sm rounded-md transition-all duration-200 btn-press">
+					All
+				</button>
+				<button
+					onclick="setTab('interview')"
+					id="tab-interview"
+					class="tab-inactive px-4 py-1.5 text-sm rounded-md transition-all duration-200 btn-press">
+					Interview
+				</button>
+				<button
+					onclick="setTab('rejected')"
+					id="tab-rejected"
+					class="tab-inactive px-4 py-1.5 text-sm rounded-md transition-all duration-200 btn-press">
+					Rejected
+				</button>
+			</div>
+			<div
+				id="job-list"
+				class="space-y-4"></div>
+			<div
+				id="empty-state"
+				class="hidden bg-white rounded-lg border border-slate-200 p-12 text-center">
+				<div
+					class="w-16 h-16 mx-auto mb-4 bg-blue-50 rounded-lg flex items-center justify-center">
+					<i class="fas fa-file-alt text-2xl text-blue-500"></i>
+				</div>
+				<h3 class="text-lg font-semibold text-slate-900 mb-1">
+					No jobs available
+				</h3>
+				<p class="text-sm text-slate-500">
+					Check back soon for new job opportunities
+				</p>
+			</div>
 		</div>
 	</body>
 </html>
