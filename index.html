@@ -17,7 +17,38 @@
 		<script src="./js/script.js"></script>
 		<title>Job Application Tracker</title>
 	</head>
-	<body>
-		<h1>Job Application Tracker</h1>
+	<body class="bg-slate-50 min-h-screen">
+		<div class="max-w-4xl mx-auto px-4 py-8">
+			<h1 class="text-2xl font-bold text-slate-900 mb-6">
+				Job Application Tracker
+			</h1>
+
+			<div class="grid grid-cols-3 gap-4 mb-8">
+				<div class="bg-white rounded-lg shadow-sm p-4">
+					<p class="text-sm text-slate-500 mb-1">Total</p>
+					<p
+						class="text-3xl font-bold text-slate-900"
+						id="stat-total">
+						8
+					</p>
+				</div>
+				<div class="bg-white rounded-lg shadow-sm p-4">
+					<p class="text-sm text-slate-500 mb-1">Interview</p>
+					<p
+						class="text-3xl font-bold text-emerald-600"
+						id="stat-interview">
+						0
+					</p>
+				</div>
+				<div class="bg-white rounded-lg shadow-sm p-4">
+					<p class="text-sm text-slate-500 mb-1">Rejected</p>
+					<p
+						class="text-3xl font-bold text-red-500"
+						id="stat-rejected">
+						0
+					</p>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
