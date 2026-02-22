@@ -109,3 +109,13 @@ function getFilteredJobs() {
 		return jobs.filter((j) => j.status === "rejected");
 	return jobs;
 }
+
+function getStatusBadge(status) {
+	if (status === "not-applied") {
+		return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700 border border-blue-300">NOT APPLIED</span>`;
+	} else if (status === "interview") {
+		return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500 text-white border border-emerald-600">INTERVIEW</span>`;
+	} else if (status === "rejected") {
+		return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-500 text-white border border-red-600">REJECTED</span>`;
+	}
+}
