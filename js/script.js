@@ -119,3 +119,65 @@ function getStatusBadge(status) {
 		return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-500 text-white border border-red-600">REJECTED</span>`;
 	}
 }
+
+function renderJob(job) {
+	let actionButtons = "";
+	if (job.status === "not-applied") {
+		actionButtons = `
+						<button onclick="updateStatus(${job.id}, 'interview')"
+							class="flex-1 px-4 py-2 border border-emerald-600 text-emerald-700 bg-emerald-100 rounded-md hover:bg-emerald-200 transition-colors btn-press font-medium text-sm">
+							INTERVIEW
+						</button>
+						<button onclick="updateStatus(${job.id}, 'rejected')"
+							class="flex-1 px-4 py-2 border border-red-600 text-red-700 bg-red-100 rounded-md hover:bg-red-200 transition-colors btn-press font-medium text-sm">
+							REJECTED
+						</button>
+					`;
+	} else {
+		actionButtons = `
+						<button onclick="updateStatus(${job.id}, 'interview')"
+							class="flex-1 px-4 py-2 border border-emerald-600 text-emerald-700 bg-emerald-100 rounded-md hover:bg-emerald-200 transition-colors btn-press font-medium text-sm">
+							INTERVIEW
+						</button>
+						<button onclick="updateStatus(${job.id}, 'rejected')"
+							class="flex-1 px-4 py-2 border border-red-600 text-red-700 bg-red-100 rounded-md hover:bg-red-200 transition-colors btn-press font-medium text-sm">
+							REJECTED
+						</button>
+					`;
+	}
+	return `
+					<div class="bg-white border border-slate-200 rounded-lg shadow-sm card-hover p-5">
+						<div class="flex items-start justify-between mb-3">
+							<div>
+								<h3 class="font-semibold text-slate-900">${job.company}</h3>
+								<p class="text-sm text-slate-600">${job.position}</p>
+							</div>
+							<button onclick="deleteJob(${job.id})" class="text-slate-400 hover:text-red-500 transition-colors btn-press">
+								<i class="fas fa-trash-alt"></i>
+							</button>
+						</div>
+						<div class="flex flex-wrap gap-3 mb-3 text-sm text-slate-500">
+							<span class="flex items-center gap-1">
+								<i class="fas fa-map-marker-alt text-xs"></i>
+								${job.location}
+							</span>
+							<span class="flex items-center gap-1">
+								<i class="fas fa-clock text-xs"></i>
+								${job.type}
+							</span>
+							<span class="flex items-center gap-1">
+								<i class="fas fa-dollar-sign text-xs"></i>
+								${job.salary}
+							</span>
+						</div>
+						<div class="mb-3">
+							${getStatusBadge(job.status)}
+						</div>
+						<p class="text-sm text-slate-600 leading-relaxed">${job.description}</p>
+						<div class="flex gap-3 mt-4">
+							${actionButtons}
+						</div>
+
+					</div>
+				`;
+}
