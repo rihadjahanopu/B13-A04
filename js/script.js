@@ -1,3 +1,15 @@
+function saveJobs() {
+	localStorage.setItem("jobTrackerData", JSON.stringify(jobs));
+}
+
+function loadJobs() {
+	const savedJobs = localStorage.getItem("jobTrackerData");
+	if (savedJobs) {
+		return JSON.parse(savedJobs);
+	}
+	return null;
+}
+
 let jobs = [
 	{
 		id: 1,
@@ -200,3 +212,46 @@ function renderJobs() {
 		jobList.innerHTML = filteredJobs.map(renderJob).join("");
 	}
 }
+
+function updateStatus(jobId, newStatus) {
+	const job = jobs.find((j) => j.id === jobId);
+	if (job) {
+		job.status = newStatus;
+		saveJobs();
+		updateStats();
+		renderJobs();
+	}
+}
+
+function deleteJob(jobId) {
+	jobs = jobs.filter((j) => j.id !== jobId);
+	saveJobs();
+	updateStats();
+	renderJobs();
+}
+
+function setTab(tab) {
+	activeTab = tab;
+
+	["all", "interview", "rejected"].forEach((t) => {
+		const btn = document.getElementById(`tab-${t}`);
+		if (t === tab) {
+			btn.classList.remove("tab-inactive");
+			btn.classList.add("tab-active");
+		} else {
+			btn.classList.remove("tab-active");
+			btn.classList.add("tab-inactive");
+		}
+	});
+
+	renderJobs();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	const savedJobs = loadJobs();
+	if (savedJobs) {
+		jobs = savedJobs;
+	}
+	updateStats();
+	renderJobs();
+});
