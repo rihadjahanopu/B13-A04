@@ -94,7 +94,7 @@ let jobs = [
 		position: "Senior Frontend Developer",
 		location: "San Francisco, CA",
 		type: "Full-time",
-		salary: "$150,000 - $200,000",
+		salary: "$150,000 - $175,000",
 		description:
 			"We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.",
 		status: "not-applied",
@@ -124,11 +124,11 @@ function getFilteredJobs() {
 
 function getStatusBadge(status) {
 	if (status === "not-applied") {
-		return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700 border border-blue-300">NOT APPLIED</span>`;
+		return `<span class="inline-flex items-center px-2.5 py-2 rounded text-xs font-medium bg-blue-50 text-black border ">NOT APPLIED</span>`;
 	} else if (status === "interview") {
-		return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500 text-white border border-emerald-600">INTERVIEW</span>`;
+		return `<span class="inline-flex items-center px-2.5 py-2 rounded text-xs font-medium bg-emerald-100 text-black border ">INTERVIEW</span>`;
 	} else if (status === "rejected") {
-		return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-500 text-white border border-red-600">REJECTED</span>`;
+		return `<span class="inline-flex items-center px-2.5 py-2 rounded text-xs font-medium bg-rose-100 text-black border ">REJECTED</span>`;
 	}
 }
 
@@ -137,22 +137,22 @@ function renderJob(job) {
 	if (job.status === "not-applied") {
 		actionButtons = `
 						<button onclick="updateStatus(${job.id}, 'interview')"
-							class="flex-1 px-4 py-2 border border-emerald-600 text-emerald-700 bg-emerald-100 rounded-md hover:bg-emerald-200 transition-colors btn-press font-medium text-sm">
+							class="flex px-4 py-2 border border-emerald-600 text-emerald-700  rounded-md hover:bg-emerald-200 transition-colors btn-press font-medium text-sm w-full lg:w-fit">
 							INTERVIEW
 						</button>
 						<button onclick="updateStatus(${job.id}, 'rejected')"
-							class="flex-1 px-4 py-2 border border-red-600 text-red-700 bg-red-100 rounded-md hover:bg-red-200 transition-colors btn-press font-medium text-sm">
+							class="flex px-4 py-2 border border-red-600 text-red-700  rounded-md hover:bg-red-200 transition-colors btn-press font-medium text-sm w-full lg:w-fit">
 							REJECTED
 						</button>
 					`;
 	} else {
 		actionButtons = `
 						<button onclick="updateStatus(${job.id}, 'interview')"
-							class="flex-1 px-4 py-2 border border-emerald-600 text-emerald-700 bg-emerald-100 rounded-md hover:bg-emerald-200 transition-colors btn-press font-medium text-sm">
+							class="flex px-4 py-2 border border-emerald-600 text-emerald-700 rounded-md hover:bg-emerald-200 transition-colors btn-press font-medium text-sm w-full lg:w-fit">
 							INTERVIEW
 						</button>
 						<button onclick="updateStatus(${job.id}, 'rejected')"
-							class="flex-1 px-4 py-2 border border-red-600 text-red-700 bg-red-100 rounded-md hover:bg-red-200 transition-colors btn-press font-medium text-sm">
+							class="flex px-4 py-2 border border-red-600 text-red-700 rounded-md hover:bg-red-200 transition-colors btn-press font-medium text-sm w-full lg:w-fit">
 							REJECTED
 						</button>
 					`;
