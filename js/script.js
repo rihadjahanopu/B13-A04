@@ -100,3 +100,12 @@ function updateStats() {
 	document.getElementById("stat-interview").textContent = interview;
 	document.getElementById("stat-rejected").textContent = rejected;
 }
+
+function getFilteredJobs() {
+	if (activeTab === "all") return jobs;
+	if (activeTab === "interview")
+		return jobs.filter((j) => j.status === "interview");
+	if (activeTab === "rejected")
+		return jobs.filter((j) => j.status === "rejected");
+	return jobs;
+}
