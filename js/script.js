@@ -181,3 +181,22 @@ function renderJob(job) {
 					</div>
 				`;
 }
+
+function renderJobs() {
+	const filteredJobs = getFilteredJobs();
+	const jobList = document.getElementById("job-list");
+	const emptyState = document.getElementById("empty-state");
+	const jobCount = document.getElementById("job-count");
+
+	jobCount.textContent = `${filteredJobs.length} jobs 8`;
+
+	if (filteredJobs.length === 0) {
+		jobList.innerHTML = "";
+		jobList.classList.add("hidden");
+		emptyState.classList.remove("hidden");
+	} else {
+		emptyState.classList.add("hidden");
+		jobList.classList.remove("hidden");
+		jobList.innerHTML = filteredJobs.map(renderJob).join("");
+	}
+}
