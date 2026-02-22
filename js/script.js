@@ -90,3 +90,13 @@ let jobs = [
 ];
 
 let activeTab = "all";
+
+function updateStats() {
+	const total = jobs.length;
+	const interview = jobs.filter((j) => j.status === "interview").length;
+	const rejected = jobs.filter((j) => j.status === "rejected").length;
+
+	document.getElementById("stat-total").textContent = total;
+	document.getElementById("stat-interview").textContent = interview;
+	document.getElementById("stat-rejected").textContent = rejected;
+}
